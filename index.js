@@ -1,7 +1,13 @@
 const express = require('express');
 const path = require('path');
+const users = require('./routes/users');
+const bodyParser = require('body-parser');
 
 const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/users', users);
 
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
