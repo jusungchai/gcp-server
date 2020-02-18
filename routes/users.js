@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
     if (results.rows.length > 0) {
       res.json(results.rows)
     } else {
-      console.log("no users")
+      res.json("no users")
     }
   })
 });
